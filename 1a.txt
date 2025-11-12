@@ -1,0 +1,127 @@
+#!/bin/bash
+# -------------------------------------------------
+# Assignment 1(A): Study of Basic Linux Commands
+# -------------------------------------------------
+
+echo "-------------------------------------------"
+echo "1. Basic Commands: echo, pwd, ls, cat, touch"
+echo "-------------------------------------------"
+
+echo "Running echo command:"
+echo "Hello from OS Practical"
+
+echo "Current working directory:"
+pwd
+
+echo "Listing files:"
+ls
+
+echo "Creating new file 'sample.txt'"
+touch sample.txt
+
+echo "Writing data into file:"
+echo "This is my first Linux file." > sample.txt
+
+echo "Displaying file content:"
+cat sample.txt
+
+echo
+echo "-------------------------------------------"
+echo "2. Using grep and sed commands"
+echo "-------------------------------------------"
+
+echo "Searching for the word 'first' in sample.txt:"
+grep "first" sample.txt
+
+echo "Replacing 'first' with 'awesome' using sed:"
+sed -i 's/first/awesome/' sample.txt
+
+echo "Displaying modified file content:"
+cat sample.txt
+
+echo
+echo "-------------------------------------------"
+echo "3. Arithmetic Operations"
+echo "-------------------------------------------"
+
+a=10
+b=4
+echo "a = $a, b = $b"
+echo "Sum = $((a + b))"
+echo "Difference = $((a - b))"
+echo "Product = $((a * b))"
+echo "Quotient = $((a / b))"
+
+echo
+echo "-------------------------------------------"
+echo "4. Conditional Statements (if-elif-else)"
+echo "-------------------------------------------"
+
+a=7
+b=9
+echo "Comparing $a and $b"
+if [ $a -gt $b ]
+then
+    echo "$a is greater"
+elif [ $a -lt $b ]
+then
+    echo "$b is greater"
+else
+    echo "Both are equal"
+fi
+
+echo
+echo "-------------------------------------------"
+echo "5. Using test Command"
+echo "-------------------------------------------"
+
+test -f sample.txt && echo "sample.txt exists" || echo "sample.txt missing"
+test -d /home && echo "/home directory exists" || echo "/home directory missing"
+
+echo
+echo "-------------------------------------------"
+echo "6. For Loop"
+echo "-------------------------------------------"
+
+for i in 1 2 3 4 5
+do
+    echo "Number: $i"
+done
+
+echo
+echo "-------------------------------------------"
+echo "7. While Loop"
+echo "-------------------------------------------"
+
+count=1
+while [ $count -le 3 ]
+do
+    echo "Count = $count"
+    count=$((count + 1))
+done
+
+echo
+echo "-------------------------------------------"
+echo "8. File Existence and Content Check"
+echo "-------------------------------------------"
+
+echo "Enter filename:"
+read fname
+
+if [ -f $fname ]
+then
+    echo "File $fname exists. Displaying content:"
+    cat $fname
+else
+    echo "File not found. Creating new file."
+    touch $fname
+    echo "Enter text to store:"
+    read text
+    echo "$text" > $fname
+    echo "File created successfully."
+fi
+
+echo
+echo "-------------------------------------------"
+echo "Assignment 1(A) Completed Successfully!"
+echo "-------------------------------------------"
